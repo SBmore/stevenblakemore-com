@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+interface AppEntry {
+  name: string;
+  href: string;
+  description: string;
+}
+
+const apps: AppEntry[] = [];
+---
+
+<BaseLayout title="Apps | Steven Blakemore" description="Small apps by Steven Blakemore.">
+  <h1>Apps</h1>
+  {
+    apps.length > 0 ? (
+      <ul>
+        {apps.map((app) => (
+          <li>
+            <a href={app.href}>{app.name}</a>: {app.description}
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="muted">Nothing here yet.</p>
+    )
+  }
+</BaseLayout>
